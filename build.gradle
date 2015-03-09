@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         jcenter()
+        maven {url "http://developer.marklogic.com/maven2/"}
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
@@ -15,6 +16,8 @@ repositories {
 }
 
 configurations {
+    // MarkLogic Java API contains Logback, which breaks spring-boot's
+    // logging.   Excluding it allows logging to work as intended
     compile.exclude module: 'spring-boot-starter-logging'
 }
 
@@ -23,15 +26,4 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     //testCompile("org.springframework.boot:spring-boot-starter-test")
-}
-
-
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {url "http://developer.marklogic.com/maven2/"}
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
-    }
 }
