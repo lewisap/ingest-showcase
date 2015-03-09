@@ -14,11 +14,15 @@ repositories {
     jcenter()
 }
 
+configurations {
+    compile.exclude module: 'spring-boot-starter-logging'
+}
+
 dependencies {
     compile ("com.marklogic:java-client-api:3.0.1")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    //testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 
