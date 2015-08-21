@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io
 
+*bower_components*
+
 ### Gradle ###
 .gradle
 build/
@@ -34,4 +36,3 @@ pom.xml.versionsBackup
 pom.xml.next
 release.properties
 dependency-reduced-pom.xml
-
