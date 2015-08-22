@@ -22,10 +22,9 @@ configurations {
 }
 
 dependencies {
-    compile ("com.marklogic:java-client-api:3.0.1")
+    compile ("com.marklogic:java-client-api:3.0.3")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    //testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 // install the JS libraries used by this application
@@ -45,7 +44,7 @@ task springConfigure() {
     }
 }
 
-// run the app
+// run the app, and run all the dependency tasks first
 task runApp(dependsOn: ['bower', 'bootRun', 'springConfigure']) {
   springConfigure.mustRunAfter bower
   bootRun.mustRunAfter springConfigure
