@@ -27,3 +27,26 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     //testCompile("org.springframework.boot:spring-boot-starter-test")
 }
+
+// install the JS libraries used by this application
+task bower(type: Exec) {
+    commandLine "bower", 'install'
+}
+
+// create and setup the application.properties file based on settings in the
+// gradle.properties (allows one base config file)
+task springConfigure() {
+  ant.propertyfile(
+    file: "src/main/resources/application.properties") {
+      entry( key: "server.port", value: port)
+      entry( key: "logging.level.org.springframework.web", value: hibernateLog)
+      entry( key: "logging.level.org.hibernate", value: springLog)
+
+    }
+}
+
+// run the app
+task runApp(dependsOn: ['bower', 'bootRun', 'springConfigure']) {
+  springConfigure.mustRunAfter bower
+  bootRun.mustRunAfter springConfigure
+}
