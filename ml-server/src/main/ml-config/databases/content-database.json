@@ -1,0 +1,87 @@
+{
+  "database-name": "%%DATABASE%%",
+  "triple-index": true,
+  "collection-lexicon": true,
+  "range-element-attribute-index": [
+    {
+      "scalar-type": "dateTime",
+      "parent-namespace-uri": "http://marklogic.com/solutions/obi",
+      "parent-localname": "metadata",
+      "namespace-uri": "",
+      "localname": "createdDateTime",
+      "collation": "",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "dateTime",
+      "parent-namespace-uri": "http://marklogic.com/solutions/obi",
+      "parent-localname": "metadata",
+      "namespace-uri": "",
+      "localname": "lastUpdatedDateTime",
+      "collation": "",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "int",
+      "parent-namespace-uri": "http://marklogic.com/solutions/obi/object",
+      "parent-localname": "sourceIds",
+      "namespace-uri": "",
+      "localname": "count",
+      "collation": "",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    }
+  ],
+  "range-element-index": [
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://marklogic.com/solutions/obi/source",
+      "localname": "dataset",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://purl.org/dc/terms/",
+      "localname": "title",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://marklogic.com/solutions/obi/object",
+      "localname": "label",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://marklogic.com/solutions/obi/object",
+      "localname": "type",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://marklogic.com/solutions/obi/ontology",
+      "localname": "objectDefDirectory",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "dateTime",
+      "namespace-uri": "http://marklogic.com/solutions/obi/source",
+      "localname": "contentDateTime",
+      "collation": "",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    }
+  ]
+}

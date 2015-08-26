@@ -1,0 +1,95 @@
+<options xmlns="http://marklogic.com/appservices/search">
+  <additional-query>
+    <cts:collection-query xmlns:cts="http://marklogic.com/cts">
+      <cts:uri>source</cts:uri>
+    </cts:collection-query>
+  </additional-query>
+  <constraint name="id">
+    <value>
+      <element ns="http://marklogic.com/solutions/obi/source" name="id" />
+    </value>
+  </constraint>
+  <constraint name="title">
+    <word>
+      <element ns="http://purl.org/dc/terms/" name="title" />
+    </word>
+  </constraint>
+  <constraint name="title-value">
+    <value>
+      <element ns="http://purl.org/dc/terms/" name="title" />
+    </value>
+  </constraint>
+  <constraint name="dataset">
+    <range type="xs:string" collation="http://marklogic.com/collation/codepoint" facet="true">
+      <element ns="http://marklogic.com/solutions/obi/source" name="dataset" />
+    </range>
+  </constraint>
+  <constraint name="content-date">
+    <range type="xs:dateTime" facet="false">
+      <element ns="http://marklogic.com/solutions/obi/source" name="contentDateTime" />
+    </range>
+  </constraint>
+  <constraint name="created">
+    <range type="xs:dateTime" facet="false">
+      <element ns="http://marklogic.com/solutions/obi" name="metadata" />
+      <attribute ns="" name="createdDateTime" />
+    </range>
+  </constraint>
+  <constraint name="created-range">
+    <range type="xs:dateTime" facet="true">
+      <element ns="http://marklogic.com/solutions/obi" name="metadata" />
+      <attribute ns="" name="createdDateTime" />
+      <computed-bucket name="today" ge="P0D" lt="P1D" anchor="now">Today</computed-bucket>
+      <computed-bucket name="30-days" ge="-P30D" lt="P1D" anchor="now">Last 30 days</computed-bucket>
+      <computed-bucket name="60-days" ge="-P60D" lt="P1D" anchor="now">Last 60 Days</computed-bucket>
+      <computed-bucket name="year" ge="-P1Y" lt="P1D" anchor="now">Last Year</computed-bucket>
+    </range>
+  </constraint>
+  <constraint name="last-updated">
+    <range type="xs:dateTime" facet="false">
+      <element ns="http://marklogic.com/solutions/obi" name="metadata" />
+      <attribute ns="" name="lastUpdatedDateTime" />
+    </range>
+  </constraint>
+  <operator name="sort">
+    <state name="relevance">
+      <sort-order>
+        <score />
+      </sort-order>
+    </state>
+    <state name="content-date-ascending">
+      <sort-order direction="ascending" type="xs:dateTime">
+        <element ns="http://marklogic.com/solutions/obi/source" name="contentDateTime" />
+      </sort-order>
+    </state>
+    <state name="content-date-descending">
+      <sort-order direction="descending" type="xs:dateTime">
+        <element ns="http://marklogic.com/solutions/obi/source" name="contentDateTime" />
+      </sort-order>
+    </state>
+    <state name="created-ascending">
+      <sort-order direction="ascending" type="xs:dateTime">
+        <element ns="http://marklogic.com/solutions/obi" name="metadata" />
+        <attribute ns="" name="createdDateTime" />
+      </sort-order>
+    </state>
+    <state name="created-descending">
+      <sort-order direction="descending" type="xs:dateTime">
+        <element ns="http://marklogic.com/solutions/obi" name="metadata" />
+        <attribute ns="" name="createdDateTime" />
+      </sort-order>
+    </state>
+    <state name="last-updated-ascending">
+      <sort-order direction="ascending" type="xs:dateTime">
+        <element ns="http://marklogic.com/solutions/obi" name="metadata" />
+        <attribute ns="" name="lastUpdatedDateTime" />
+      </sort-order>
+    </state>
+    <state name="last-updated-descending">
+      <sort-order direction="descending" type="xs:dateTime">
+        <element ns="http://marklogic.com/solutions/obi" name="metadata" />
+        <attribute ns="" name="lastUpdatedDateTime" />
+      </sort-order>
+    </state>
+  </operator>
+</options>

@@ -1,0 +1,43 @@
+<options xmlns="http://marklogic.com/appservices/search">
+  <additional-query>
+    <cts:collection-query xmlns:cts="http://marklogic.com/cts">
+      <cts:uri>object</cts:uri>
+    </cts:collection-query>
+  </additional-query>
+  <constraint name="id">
+    <value>
+      <element ns="http://marklogic.com/solutions/obi/object" name="id" />
+    </value>
+  </constraint>
+  <constraint name="object-type">
+    <custom facet="true">
+      <parse apply="parse-structured" ns="http://marklogic.com/solutions/obi/search" at="/ext/obi/lib/search/object-type-constraint.xqy" />
+      <finish-facet apply="finish-facet" ns="http://marklogic.com/solutions/obi/search" at="/ext/obi/lib/search/object-type-constraint.xqy" />
+    </custom>
+  </constraint>
+  <constraint name="object-sourced-by">
+    <custom facet="false">
+      <parse apply="parse-structured" ns="http://marklogic.com/solutions/obi/search" at="/ext/obi/lib/search/sourced-by-constraint.xqy" />
+    </custom>
+  </constraint>
+  <constraint name="object-source-dataset">
+    <custom facet="true">
+      <parse apply="parse-structured" ns="http://marklogic.com/solutions/obi/search" at="/ext/obi/lib/search/source-dataset-constraint.xqy" />
+      <finish-facet apply="finish-facet" ns="http://marklogic.com/solutions/obi/search" at="/ext/obi/lib/search/source-dataset-constraint.xqy" />
+    </custom>
+  </constraint>
+  <constraint name="object-source-count">
+    <range type="xs:int" facet="true">
+      <element ns="http://marklogic.com/solutions/obi/object" name="sourceIds" />
+      <attribute ns="" name="count" />
+      <bucket lt="2" name="One">One</bucket>
+      <bucket lt="6" ge="2" name="Two to five">Two to five</bucket>
+      <bucket ge="6" name="More than five">More than five</bucket>
+    </range>
+  </constraint>
+  <values name="source-id">
+    <range type="xs:string">
+      <element ns="http://marklogic.com/solutions/obi/source" name="id" />
+    </range>
+  </values>
+</options>

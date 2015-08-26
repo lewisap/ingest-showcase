@@ -1,0 +1,36 @@
+{
+  "range-element-index": [
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://marklogic.com/solutions/obi/source",
+      "localname": "id",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://marklogic.com/solutions/obi/object",
+      "localname": "id",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://marklogic.com/solutions/obi/object/link",
+      "localname": "fromId",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    },
+    {
+      "scalar-type": "string",
+      "namespace-uri": "http://marklogic.com/solutions/obi/object/link",
+      "localname": "toId",
+      "collation": "http://marklogic.com/collation/codepoint",
+      "range-value-positions": false,
+      "invalid-values": "reject"
+    }
+  ]
+}

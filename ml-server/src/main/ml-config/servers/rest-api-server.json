@@ -1,0 +1,4 @@
+{
+  "server-name": "%%NAME%%",
+  "collation": "http://marklogic.com/collation/codepoint"
+}
