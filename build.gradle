@@ -6,7 +6,8 @@ buildscript {
         maven {url "http://rjrudin.github.io/marklogic-java/releases"}
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
+        classpath 'org.springframework:springloaded:1.2.3.RELEASE'
         classpath "com.marklogic:ml-gradle:2.0-alpha-4"
         classpath 'org.codehaus.groovy.modules.http-builder:http-builder:0.7'
     }
